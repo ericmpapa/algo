@@ -1,4 +1,4 @@
 import 'dart:math';
 
-int randomUnsignedInt(int max) => Random().nextInt(max);
-int randomSignedInt(max) => ((Random().nextInt(1)/-1) as int) * Random().nextInt(max);
+int randomInt(int min,int max) => Random().nextInt(max) + min;
+double randomDouble(double min,double max) => Random().nextDouble() * (max-min) + min;

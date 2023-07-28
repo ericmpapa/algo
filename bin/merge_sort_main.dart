@@ -9,13 +9,13 @@ void main() {
   Stopwatch timer = Stopwatch();
   timer.start();
   var inputs = stdin.readInts();
-  print("tableau non trié");
+  /*print("tableau non trié");
   print("----------------");
-  print(inputs);
+  print(inputs);*/
   var sortedList = merge_sort.sort(inputs);
   timer.stop();
   stdout.println("temps écoulé: ${timer.elapsed}");
-  ("tableau trié");
+  /*("tableau trié");
   print("------------");
-  print(sortedList);
+  print(sortedList);*/
 }
