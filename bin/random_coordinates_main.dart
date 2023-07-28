@@ -5,7 +5,7 @@ void main(){
   double orLong = 30.2551;
   for(int i=0;i<325;i++){
     var lat = stdrandom.randomDouble(-0.0062,0.0062);
-    var long = stdrandom.randomDouble(0.0071,0.0071);
+    var long = stdrandom.randomDouble(-0.0071,0.0071);
     stdout.println("${(lat+orLat).toStringAsFixed(4)} ${(long+orLong).toStringAsFixed(4)}");
   }
 }
