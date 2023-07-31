@@ -1,5 +1,5 @@
-class _Node{
-  int? valeur;
+class _Node<T>{
+  T? valeur;
   _Node? ref;
   _Node(this.valeur,this.ref);
 
@@ -7,10 +7,10 @@ class _Node{
   String toString()=> "$valeur";
 }
 
-class SimpleLinkedList{
+class SimpleLinkedList<T>{
   _Node? first;
 
-  void add(int element){ // ajout à la fin
+  void add(T element){ // ajout à la fin
     var node = _Node(element,null);
     var lastNode = _lastNode();
     if(lastNode == null){
@@ -20,7 +20,7 @@ class SimpleLinkedList{
     }
   }
 
-  void addAt(int index, int element){
+  void addAt(int index, T element){
     if(index < 0) throw ArgumentError.value(index);
     if(index > lastIndex()) throw IndexError.withLength(index, length());
     int ind = -1;
