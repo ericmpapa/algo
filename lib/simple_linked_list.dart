@@ -20,21 +20,30 @@ class SimpleLinkedList<T>{
     }
   }
 
+  bool isEmpty() => first == null;
+
   void addAt(int index, T element){
     if(index < 0) throw ArgumentError.value(index);
     if(index > lastIndex()) throw IndexError.withLength(index, length());
+    if(index == 0){
+      var n = _Node(element,first);
+      first = n;
+      return;
+    }
     int ind = -1;
     if(first != null) ind ++;
     var node = first;
     while(node?.ref != null){
-      if(index == ind){
-        node?.ref = _Node(element,node.ref);
+      if(index == (ind+1)){
+        node?.ref = _Node(element, node.ref);
         break;
       }
       node = node?.ref;
       ind ++;
     }
   }
+
+  T? elementAt(int index) => _nodeAt(index)?.valeur;
 
   void removeAt(int index){
     if(index < 0) throw ArgumentError.value(index);

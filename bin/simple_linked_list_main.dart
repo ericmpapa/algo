@@ -9,7 +9,8 @@ void main(){
   liste.add("mercredi"); // index 2
   liste.add("jeudi"); // index 3
 
-  liste.removeAt(2);
+  liste.addAt(0, "avant lundi");
+  liste.addAt(2, "avant mardi");
 
   stdout.println("ma liste vaut $liste");
 }
