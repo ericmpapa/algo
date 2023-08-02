@@ -45,6 +45,8 @@ class SimpleLinkedList<T>{
 
   T? elementAt(int index) => _nodeAt(index)?.valeur;
 
+  T? last() => _nodeAt(lastIndex())?.valeur;
+  
   void removeAt(int index){
     if(index < 0) throw ArgumentError.value(index);
     if(index > lastIndex()) throw IndexError.withLength(index, length());

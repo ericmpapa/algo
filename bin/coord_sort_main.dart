@@ -1,13 +1,23 @@
-import 'dart:math';
+import 'package:algorithms/coord.dart';
+import 'package:algorithms/selection_sort.dart' as selection_sort;
+import 'package:algorithms/stdout.dart' as stdout;
+import 'package:algorithms/stdin.dart' as stdin;
 
 void main() {
-  // Origine (latitude:1.5609,longitude: 30.2551) 
-
-  var d = 6371 *
-      acos(sin(1.5609 * pi / 180) * sin(1.5603 * pi / 180) +
-          cos(1.5609 * pi / 180) *
-              cos(1.5603 * pi / 180) *
-              cos((30.2533 - 30.2551) * pi / 180));
-
-  print("distance:$d");
+  stdout.println("Execution de l'algorithme de Tri par séléction des coordonnées");
+  stdout.println("--------------------------------------------------------------");
+  stdout.println("Lecture des inputs");
+  Stopwatch timer = Stopwatch();
+  timer.start();
+  var inputs = stdin.readCoords();
+  /*print("tableau non trié");
+  print("----------------");
+  print(inputs);*/
+  var origin = Coord(1.5609,30.2551);
+  selection_sort.sortCoord(inputs,origin);
+  timer.stop();
+  stdout.println("temps écoulé: ${timer.elapsed}");
+  ("tableau trié");
+  print("------------");
+  print(inputs);
 }

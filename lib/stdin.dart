@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:algorithms/coord.dart';
 
 int readInt() => int.tryParse(stdin.readLineSync() ?? '0') ?? 0;
 
@@ -39,5 +40,19 @@ List<String> readStrings() {
     line = stdin.readLineSync();
   }
 
+  return list;
+}
+
+List<Coord> readCoords() {
+  var list = <Coord>[];
+
+  String? line = stdin.readLineSync();
+  while (line != null) {
+    var coordlist = line.split(' ');
+    var latitude = double.parse(coordlist[0]);
+    var longitude = double.parse(coordlist[1]);
+    list.add(Coord(latitude,longitude));
+    line = stdin.readLineSync();
+  }
   return list;
 }
