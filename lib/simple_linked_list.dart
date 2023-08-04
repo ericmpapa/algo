@@ -1,6 +1,6 @@
 class _Node<T>{
   T? valeur;
-  _Node? ref;
+  _Node<T>? ref;
   _Node(this.valeur,this.ref);
 
   @override 
@@ -8,7 +8,7 @@ class _Node<T>{
 }
 
 class SimpleLinkedList<T>{
-  _Node? first;
+  _Node<T>? first;
 
   void add(T element){ // ajout à la fin
     var node = _Node(element,null);
@@ -63,7 +63,7 @@ class SimpleLinkedList<T>{
     
   }
 
-  _Node? _nodeAt(int index){
+  _Node<T>? _nodeAt(int index){
     if(index < 0) throw ArgumentError.value(index);
     if(index > lastIndex()) throw IndexError.withLength(index, length());
     int ind = -1;
