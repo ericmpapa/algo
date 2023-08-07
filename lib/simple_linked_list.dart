@@ -98,6 +98,8 @@ class SimpleLinkedList<T>{
     return node;
    }
 
+   void clear()=> first = null;
+
    @override
    String toString(){
     String r = "[";
@@ -107,7 +109,7 @@ class SimpleLinkedList<T>{
       node = node?.ref;
       r += "$node,";
     }
-    r = r.substring(0,r.length-1);
+    if(first != null) r = r.substring(0,r.length-1);
     r += "]";
     return r;
    }

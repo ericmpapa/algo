@@ -1,4 +1,5 @@
 import 'package:algorithms/simple_linked_list.dart';
+import 'package:algorithms/stack.dart';
 
 class _Node<T>{
   int key;
@@ -17,6 +18,7 @@ class _Node<T>{
 
 class GTree<T>{
   _Node<T>? root;
+  final _stack = Stack<_Node<T>?> ();
 
   GTree(T element){
     root ??= _Node(element,0);
@@ -30,7 +32,7 @@ class GTree<T>{
    }
   }
 
-  int _countChildren(_Node<T>? root){
+  int _countChildren(_Node<T>? root){ // Parcours en profondeur
     int ret = 0;
     var slist = root?.children;
     var length = slist?.length() ?? 0;
@@ -52,13 +54,29 @@ class GTree<T>{
 
   _Node? _getNode(int key)=> _browseChildren(key, root);
 
-  _Node? _browseChildren(int key, _Node? root){ // parcours en largeur
+  _Node? _browseChildren(int key, _Node<T>? root){// parcours en largeur
+    _stack.clear();   
     print("[DEBUG]: ${root?.key ?? 'null'}");
     _Node? ret;
     if(root?.key == key) {
       return root;
     }
-    var slist = root?.children;
+    _stack.push(root);
+
+    while(!_stack.isEmpty()){
+      var n = _stack.pop();
+      if(n?.key == key){
+        ret = n;
+        break;
+      }
+      var slist = n?.children;
+      var length = n?.children?.length() ?? 0;
+      for(int i=0;i<length;i++){
+        _stack.push(slist?.elementAt(i));
+      } 
+    }
+
+    /*var slist = root?.children;
     var length = slist?.length() ?? 0;
     for(int i=0;i<length;i++){
       var n = slist?.elementAt(i);
@@ -74,7 +92,7 @@ class GTree<T>{
         ret = n;
         break;
       }
-    }
+    }*/
 
     return ret;
   }
