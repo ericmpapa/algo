@@ -1,3 +1,4 @@
+import 'package:sprintf/sprintf.dart';
 class BTree<M,T> {
   BTree<M,T>? left;
   BTree<M,T>? right;
@@ -86,32 +87,8 @@ class BTree<M,T> {
     return ret;
   }
 
-  String keyChain() => "$key${left?.keyChain()}${right?.keyChain()}";
+
 
   @override
-  String toString(){
-    /*String ret = "";
-    String topLevel = "";
-    String lowLevel = "";
-    int length = keyChain().length;
-    ret += sprintf("%${length}s",[""]);
-    topLevel += sprintf("%${length/2}s",[""]).replaceAll(" ", "-");
-    topLevel += key.toString();
-    topLevel += sprintf("%-${length/2}s",[""]).replaceAll(" ", "-");
-    ret += topLevel;
-    ret += sprintf("%${length}s",[""]);
-    ret += "\n";
-    ret += sprintf("%${length}s",[""]);
-    ret += sprintf("|%${key.toString().length+length-2}s|\n",[""]);
-    ret += sprintf("%${length}s",[""]);
-    ret += "\n";
-
-    var s = (left?.key?.toString().length ?? 0) + (right?.key?.toString().length ?? 0);
-    var p = (topLevel.length - s) + (left?.key?.toString().length ?? 0) ~/2 + (right?.key?.toString().length ?? 0)~/2;
-
-    lowLevel += sprintf("%${length - ((left?.key?.toString().length ?? 0) ~/2)}s",[""])+(left?.toString() ?? "").toString()+sprintf("%${p}s",[""])+(right?.toString() ?? "").toString();
-    ret += lowLevel;
-    return ret;*/
-    return "{key:$key,value:$value,children:[left:$left,right:$right]}";
-  }
+  String toString()=> "{key:$key,value:$value,children:[left:$left,right:$right]}";
 }

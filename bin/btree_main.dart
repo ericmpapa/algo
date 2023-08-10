@@ -9,6 +9,6 @@ void main(){
   btree.setRight("root", "night", "nuit");
 
   btree.setLeft("night", "day", "jour");
-   btree.setLeft("day", "day one", "jour un");
+  btree.setLeft("day", "day one", "jour un");
   print(btree);
 }

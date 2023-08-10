@@ -9,8 +9,7 @@ int? bruteForceSearch(List<int> tab,int criteria){
   return ret;
 }
 
-int? binarySearch(List<int> tab,int criteria,int index){
-  
+int? binarySearch(List<int> tab,int criteria,int index){  
   int? ret;
   int middle = tab.length ~/ 2;
   print("[DEBUG] index:$index, middle:$middle");
